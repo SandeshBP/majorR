@@ -1,0 +1,218 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <br/>
+
+  <div class="row">
+  <div class="container">
+      <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4"></div>
+        
+      <div class="col-xs-12 col-sm-8 col-md-4 ">
+          <h3 class="text-center text-info">Register</h3><br/>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><small></small></h3>
+           </div>
+           <div class="panel-body">
+            
+          <form
+          [formGroup]="regForm"
+          (ngSubmit)="register(confirmPassword.value)"
+        >
+          <div class="form-group">
+            <input
+              formControlName="firstName"
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="FirstName"
+              name="firstname"
+              required
+            />
+
+            <div
+              *ngIf="submitted && regForm.controls.firstName.errors"
+              class="error"
+            >
+              <div
+                class="text-danger"
+                *ngIf="regForm.controls.firstName.errors.required"
+              >
+                FirstName is required ..
+              </div>
+
+              <div
+                class="text-danger"
+                *ngIf="regForm.controls.firstName.errors.pattern"
+              >
+                Enter a valid Firstname
+              </div>
+            </div>
+
+            <br />
+          </div>
+
+          <div class="form-group">
+            <input
+              formControlName="lastName"
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="LastName"
+              name="lastname"
+              required
+            />
+
+            <div
+              *ngIf="submitted && regForm.controls.lastName.errors"
+              class="error"
+            >
+              <div
+                class="text-danger"
+                *ngIf="regForm.controls.lastName.errors.required"
+              >
+                LastName is required ..
+              </div>
+
+              <div
+                class="text-danger"
+                *ngIf="regForm.controls.lastName.errors.pattern"
+              >
+                Enter a valid lastname
+              </div>
+            </div>
+
+            <br />
+          </div>
+
+          <div class="form-group">
+            <input
+              formControlName="mobile"
+              type="number"
+              class="form-control form-control-lg"
+              placeholder="Mobile number"
+              name="mobilenumber"
+            maxlength="10"
+              required
+            />
+
+            <div
+              *ngIf="submitted && regForm.controls.mobile.errors"
+              class="error"
+            >
+              <div
+                class="text-danger"
+                *ngIf="regForm.controls.mobile.errors.required"
+              >
+                Mobile Number is required ..
+              </div>
+
+              <div
+                class="text-danger"
+                *ngIf="regForm.controls.mobile.errors.pattern"
+              >
+                Enter a valid Number
+              </div>
+            </div>
+
+            <br />
+          </div>
+
+          <div class="form-group">
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control form-control-lg"
+              placeholder="Email Address"
+              name="email"
+            />
+
+            <div
+              *ngIf="submitted && regForm.controls.email.errors"
+              class="error"
+            >
+              <div
+                class="text-danger"
+                *ngIf="regForm.controls.email.errors.required"
+              >
+                Email is required ..
+              </div>
+
+              <div
+                class="text-danger"
+                *ngIf="regForm.controls.email.errors.pattern"
+              >
+                Enter a valid Email
+              </div>
+            </div>
+
+            <br />
+          </div>
+
+          <div class="form-group">
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control form-control-lg"
+              placeholder="Password"
+              name="password"
+            />
+
+            <div
+              *ngIf="submitted && regForm.controls.password.errors"
+              class="error"
+            >
+              <div
+                class="text-danger"
+                *ngIf="regForm.controls.password.errors.required"
+              >
+                Password is required ..
+              </div>
+
+              <div
+                class="text-danger"
+                *ngIf="regForm.controls.password.errors.pattern"
+              >
+                Enter a valid Password
+              </div>
+            </div>
+
+            <br />
+          </div>
+
+          <div class="form-group">
+            <input
+              #confirmPassword
+              type="password"
+              class="form-control form-control-lg"
+              placeholder="Confirm Password"
+              name="password2"
+            />
+            <div *ngIf="flag == true" class="text-danger">
+              <br />
+
+              {{ message }}
+            </div>
+          </div>
+
+          <input type="submit" class="btn btn-primary btn-block md-4" />
+
+        
+
+          <input type="reset" class="btn btn-info btn-block md-4" />
+        </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

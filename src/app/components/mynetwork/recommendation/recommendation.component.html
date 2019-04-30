@@ -1,0 +1,10 @@
+<div class="container">
+    <h4>My Friends</h4>
+    <ul class="list-group" *ngFor="let fd of friends" >
+      <li class="list-group-item">
+        <a class="text-info" (click)="friendProfile(fd.userId)"> {{fd.firstName}} {{ " "}}{{fd.lastName}}</a>
+      </li>
+    
+    </ul>
+  </div>
+  

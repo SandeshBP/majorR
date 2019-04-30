@@ -1,0 +1,159 @@
+<app-navbar>
+  </app-navbar>
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" />
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <title>Welcome to Career4You</title>
+  </head>
+
+  <body>
+    <br />
+
+    <!-- Add Experience -->
+
+    <div class="add-education">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 m-auto">
+
+            <h3 class="display-4 text-center">Add Your Education</h3>
+
+            <p class="lead text-center">
+              Add any school, bootcamp, etc that you have attended
+            </p>
+
+            <form [formGroup]="educationForm" (ngSubmit)=onSubmit()>
+              <div class="form-group">
+                <h6>School Or University<span style="color:red">*</span></h6>
+
+                <input type="text" formControlName="institutionName" class="form-control form-control-lg"
+                  placeholder="School Or Bootcamp" name="institutionName" />
+                <div *ngIf="submitted && educationForm.controls.institutionName.errors" class="error">
+                  <div class="text-danger" *ngIf="educationForm.controls.institutionName.errors.required">
+                    Name is required ..
+                  </div>
+
+                  <div class="text-danger" *ngIf="educationForm.controls.institutionName.errors.pattern">
+                    Enter a valid University
+                  </div>
+                </div>
+
+                <br />
+              </div>
+
+              <div class="form-group">
+                <h6>Degree Or Certificate<span style="color:red">*</span></h6>
+
+                <input type="text" formControlName="degree" class="form-control form-control-lg"
+                  placeholder="Degree Or Certificate" name="degree" />
+                <div *ngIf="submitted && educationForm.controls.degree.errors" class="error">
+                  <div class="text-danger" *ngIf="educationForm.controls.degree.errors.required">
+                    Degree is required ..
+                  </div>
+
+                  <div class="text-danger" *ngIf="educationForm.controls.degree.errors.pattern">
+                    Enter a valid Degree
+                  </div>
+                </div>
+
+                <br />
+              </div>
+
+              <div class="form-group">
+                <h6>Field of Study<span style="color:red">*</span></h6>
+
+                <input type="text" formControlName="fieldOfStudy" class="form-control form-control-lg"
+                  placeholder="Field Of Study" name="fieldOfStudy" />
+                <div *ngIf="submitted && educationForm.controls.fieldOfStudy.errors" class="error">
+                  <div class="text-danger" *ngIf="educationForm.controls.fieldOfStudy.errors.required">
+                    Field is required ..
+                  </div>
+
+                  <div class="text-danger" *ngIf="educationForm.controls.fieldOfStudy.errors.pattern">
+                    Enter a valid Field
+                  </div>
+                </div>
+
+                <br />
+              </div>
+
+              <div class="form-group">
+                <h6>Location<span style="color:red">*</span></h6>
+
+                <input type="text" formControlName="location" class="form-control form-control-lg"
+                  placeholder="Location" name="location" />
+                <div *ngIf="submitted && educationForm.controls.location.errors" class="error">
+                  <div class="text-danger" *ngIf="educationForm.controls.location.errors.required">
+                    Location is required ..
+                  </div>
+
+                  <div class="text-danger" *ngIf="educationForm.controls.location.errors.pattern">
+                    Enter a valid Location
+                  </div>
+                </div>
+                <br />
+              </div>
+
+
+
+              <div class="form-group">
+                <h6>From Year<span style="color:red">*</span></h6>
+                <input type="date" formControlName="startYear" min="1950" max="2050" class="form-control form-control-lg"
+                  name="startYear" placeholder="Start Year"/>
+                <div *ngIf="submitted && educationForm.controls.startYear.errors" class="error">
+                  <div class="text-danger" *ngIf="educationForm.controls.startYear.errors.required">
+                    Start Year is required ..
+                  </div>
+                
+
+                </div>
+                <br />
+              </div>
+
+
+              <div class="form-group">
+                <h6>End Year<span style="color:red">*</span></h6>
+                <input type="date" formControlName="endYear"  min="1950" max="2050" class="form-control form-control-lg"
+                placeholder="End Year" name="endYear" />
+                <div *ngIf="submitted && educationForm.controls.endYear.errors" class="error">
+                  <div class="text-danger" *ngIf="educationForm.controls.endYear.errors.required">
+                    End Year is required ..
+                  </div>
+
+
+                </div>
+                <br />
+              </div>
+
+
+
+              <button type="submit" class="btn btn-info btn-block mt-4">
+                  Submit
+                </button>
+                <a href="profile" class="btn btn-primary btn-block mt-4">
+                  Go Back
+                </a>
+            </form>
+          </div>
+          <!-- <div class="col-md-3">
+              <div class="card-footer">
+                  <app-footer2></app-footer2>
+                </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </body>
+
+  </html>

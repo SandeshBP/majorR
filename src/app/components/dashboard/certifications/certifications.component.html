@@ -1,0 +1,128 @@
+<app-navbar></app-navbar>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <link rel="stylesheet" />
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <title>Welcome to Career4You</title>
+</head>
+
+<body>
+  <br />
+
+  <!-- Add Experience -->
+
+  <div class="add-certification">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 ">
+          <!-- <a href="dashboard.html" class="btn btn-outline-warning">
+
+Go Back
+
+</a> -->
+
+          <h2 class="text-center">Add Licence & Certification</h2>
+          <br />
+
+          <!-- <p class="lead text-center">
+
+Add any school, bootcamp, etc that you have attended
+
+</p> -->
+
+          <form [formGroup]="certificationForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <h6>Name Of Certification<span style="color:red">*</span></h6>
+
+              <input formControlName="name" type="text" class="form-control form-control-lg"
+                placeholder="Ex:CCNA,JAVA,AZURE" name="name" />
+              <div *ngIf="submitted && certificationForm.controls.name.errors" class="error">
+                <div class="text-danger" *ngIf="certificationForm.controls.name.errors.required">
+                  Name is required ..
+                </div>
+
+                <div class="text-danger" *ngIf="certificationForm.controls.name.errors.pattern">
+                  Enter a valid Name
+                </div>
+              </div>
+
+              <br />
+            </div>
+
+            <div class="form-group">
+              <h6>Issuing Organization<span style="color:red">*</span></h6>
+
+              <input formControlName="institutionName" type="text" class="form-control form-control-lg"
+                placeholder="Ex:Cisco,Microsoft" name="institutionName"/>
+              <div *ngIf="submitted && certificationForm.controls.institutionName.errors" class="error">
+                <div class="text-danger" *ngIf="certificationForm.controls.institutionName.errors.required">
+                  Institution Name is required ..
+                </div>
+
+                <div class="text-danger" *ngIf="certificationForm.controls.institutionName.errors.pattern">
+                  Enter a valid Institution Name
+                </div>
+              </div>
+
+              <br />
+            </div>
+
+            <div class="form-group">
+                <h6>Description<span style="color:red">*</span></h6>
+              <textarea formControlName="description" class="form-control form-control-lg"
+                placeholder="Program Description" name="description"></textarea>
+
+              <small class="form-text text-muted">Tell us about your experience and what you learned</small>
+              <div *ngIf="submitted && certificationForm.controls.description.errors" class="error">
+                  <div class="text-danger" *ngIf="certificationForm.controls.description.errors.required">
+                    Description is required ..
+                  </div>
+                </div>
+  
+                <br />
+            </div>
+
+            <h6>Issue Date</h6>
+
+            <div class="form-group">
+              <input type="date" formControlName="issueDate" placeholder="dd/mm/yyyy"
+              class="form-control form-control-lg" name="issueDate" />
+              <div *ngIf="submitted && certificationForm.controls.issueDate.errors" class="error">
+                  <div class="text-danger" *ngIf="certificationForm.controls.issueDate.errors.required">
+                      Issue Date is required ..
+                  </div>
+                </div>
+  
+                <br />
+            </div>
+
+         
+
+              <button type="submit" class="btn btn-info btn-block mt-4">
+                  Submit
+                </button>
+                <a href="profile" class="btn btn-primary btn-block mt-4">
+                  Go Back
+                </a>
+          </form>
+        </div>
+        <!-- <div class="col-md-3">
+            <div class="card-footer">
+                <app-footer2></app-footer2>
+              </div>
+        </div> -->
+
+      </div>
+
+    </div>

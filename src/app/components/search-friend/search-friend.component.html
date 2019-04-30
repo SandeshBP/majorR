@@ -1,0 +1,30 @@
+<div class="col-md-12">
+  <h3 class="display-4 text-left">Your Result</h3>
+  <p class="lead text-left">Connect With People</p>
+
+  <div class="card card-body bg-light mb-3" *ngFor="let usrSugg of userSuggestions">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="row">
+        <img
+          class="rounded-circle"
+          src="https://www.gravatar.com/avatar/anything?s=200&d=mm"
+          alt=""
+        />
+      </div>
+      <div class="col-lg-5">
+        <h3>{{ usrSugg.firstName + usrSugg.lastName }}</h3>
+        <p>{{ usrSugg.currentJob }}</p>
+        <p>{{ usrSugg.currentOrganisation }}</p>
+        <p>{{ usrSugg.state }}</p>
+      </div>
+      <div class="col-lg-4">
+        <br /><br />
+        <a class="btn btn-info" (click)="sendRequest(usrSugg.userId)"
+          >Send Request</a
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

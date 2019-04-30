@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+  <link rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <title>Welcome to Careers4You</title>
+</head>
+
+<body>
+  <app-navbar></app-navbar>
+  <!-- Add Experience -->
+  <div class="section add-experience">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 m-auto">
+
+          <h1 class="display-4 text-center">Add Your Experience</h1>
+          <p class="lead text-center">Add any job positions that you have had in the past</p>
+          <small class="d-block pb-3">
+            <h6>All the fields are required<span style="color:red">*</span></h6>
+          </small>
+          <form [formGroup]="experienceForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+              <h6>Company Name</h6>
+              <input formControlName="companyName" type="text" class="form-control form-control-lg"
+                placeholder="company Name" name="companyName" required />
+              <div *ngIf="submitted && experienceForm.controls.companyName.errors" class="error">
+                <div class="text-danger" *ngIf="experienceForm.controls.companyName.errors.required">
+                  Name is required ..
+                </div>
+                <div class="text-danger" *ngIf="experienceForm.controls.companyName.errors.pattern">
+                  Enter a valid Company
+                </div>
+                <br />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <h6>Location</h6>
+              <input formControlName="location" type="text" class="form-control form-control-lg" placeholder=" Location"
+                name="location" required />
+              <div *ngIf="submitted && experienceForm.controls.location.errors" class="error">
+                <div class="text-danger" *ngIf="experienceForm.controls.location.errors.required">
+                  Location is required ..
+                </div>
+              </div>
+              <br />
+            </div>
+
+
+            <div class="form-group">
+              <h6>From Year</h6>
+              <input type="date" formControlName="startYear" min="1950" max="2050"
+                class="form-control form-control-lg" name="startYear" placeholder="Start Year" />
+              <div *ngIf="submitted && experienceForm.controls.startYear.errors" class="error">
+                <div class="text-danger" *ngIf="experienceForm.controls.startYear.errors.required">
+                  Start Year is required ..
+                </div>
+              </div>
+              <br />
+            </div>
+
+
+            <div class="form-group">
+              <h6>End Year</h6>
+              <input type="date" formControlName="endYear" min="1950" max="2050" class="form-control form-control-lg"
+                placeholder="End Year" name="endYear" />
+              <div *ngIf="submitted && experienceForm.controls.endYear.errors" class="error">
+                <div class="text-danger" *ngIf="experienceForm.controls.endYear.errors.required">
+                  End Year is required ..
+                </div>
+              </div>
+              <br />
+            </div>
+
+            <div class="form-group">
+              <h6>Designation</h6>
+              <input formControlName="designation" type="text" class="form-control form-control-lg"
+                placeholder="Designation" name="designation" required />
+              <div *ngIf="submitted && experienceForm.controls.designation.errors" class="error">
+                <div class="text-danger" *ngIf="experienceForm.controls.designation.errors.required">
+                  Designation is required ..
+                </div>
+
+                <div class="text-danger" *ngIf="experienceForm.controls.designation.errors.pattern">
+                  Enter a valid Designation
+                </div>
+              </div>
+              <br />
+            </div>
+
+            
+
+            <div class="form-group">
+              <h6>Job Details</h6>
+              <textarea formControlName="jobDetails" class="form-control form-control-lg" placeholder="Job Details"
+                name="description"></textarea>
+              <small class="form-text text-muted">Tell us about your experience and what you learned</small>
+              <div *ngIf="submitted && experienceForm.controls.jobDetails.errors" class="error">
+                <div class="text-danger" *ngIf="experienceForm.controls.jobDetails.errors.required">
+                  Details is required ..
+                </div>
+              </div>
+              <br />
+            </div>
+
+            <button type="submit" class="btn btn-info btn-block mt-4">
+                Submit
+              </button>
+            <a href="profile" class="btn btn-primary btn-block mt-4">
+              Go Back
+            </a>
+          </form>
+        </div>
+        <!-- <div class="col-md-3">
+            <div class="card-footer">
+                <app-footer2></app-footer2>
+              </div>
+      </div> -->
+      </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+  <link rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <title>Welcome to Circle</title>
+</head>
+
+<body>
+  <app-navbar></app-navbar>
+
+  <!-- Edit Profile -->
+  <div class="create-profile">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+
+          <h1 class="display-4 text-center">Edit Your Profile</h1>
+          <p class="lead text-center">Let's get some information to make your profile stand out</p>
+
+
+
+          <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+              <h6>First Name</h6>
+              <input formControlName="firstName" type="text" class="form-control form-control-lg"
+                placeholder="First Name" name="firstName" />
+
+              <small class="form-text text-muted">A unique handle for your profile URL. Your full name, company name,
+                nickname, etc (This CAN'T be changed later)</small>
+              <div *ngIf="submitted && profileForm.controls.firstName.errors" class="error">
+                <div class="text-danger" *ngIf="profileForm.controls.firstName.errors.required">
+                  First Name is required ..
+                </div>
+                <div class="text-danger" *ngIf="profileForm.controls.firstName.errors.pattern">
+                  Enter a valid First Name
+                </div>
+                <br />
+              </div>
+            </div>
+            <div class="form-group">
+              <h6>Last Name</h6>
+              <input formControlName="lastName" type="text" class="form-control form-control-lg" placeholder="Last Name"
+                name="lastName" />
+
+              <small class="form-text text-muted">A unique handle for your profile URL. Your full name, company name,
+                nickname, etc (This CAN'T be changed later)</small>
+              <div *ngIf="submitted && profileForm.controls.lastName.errors" class="error">
+                <div class="text-danger" *ngIf="profileForm.controls.lastName.errors.required">
+                  Last Name is required ..
+                </div>
+                <div class="text-danger" *ngIf="profileForm.controls.lastName.errors.pattern">
+                  Enter a valid Last Name
+                </div>
+                <br />
+              </div>
+            </div>
+            <div class="form-group">
+              <h6>Mobile</h6>
+              <input formControlName="mobile" type="number" class="form-control form-control-lg"
+                placeholder="MobileNumber" name="mobile" />
+              <div *ngIf="submitted && profileForm.controls.mobile.errors" class="error">
+                <div class="text-danger" *ngIf="profileForm.controls.mobile.errors.required">
+                  Mobile Number is required ..
+                </div>
+                <div class="text-danger" *ngIf="profileForm.controls.mobile.errors.pattern">
+                  Enter a valid Mobile Number
+                </div>
+                <br />
+              </div>
+            </div>
+            <div class="form-group">
+              <h6>Email</h6>
+              <input formControlName="email" type="email" class="form-control form-control-lg" placeholder="Email Id"
+                name="email" />
+              <div *ngIf="submitted && profileForm.controls.email.errors" class="error">
+                <div class="text-danger" *ngIf="profileForm.controls.email.errors.required">
+                  Email Id is required ..
+                </div>
+                <div class="text-danger" *ngIf="profileForm.controls.email.errors.pattern">
+                  Enter a valid Email Id
+                </div>
+                <br />
+              </div>
+            </div>
+            <!-- <div class="form-group">
+              <h6>Password</h6>
+              <input formControlName="password" type="text" class="form-control form-control-lg" placeholder="Password"
+                name="password" />
+              <div *ngIf="submitted && profileForm.controls.password.errors" class="error">
+                <div class="text-danger" *ngIf="profileForm.controls.password.errors.required">
+                  Password is required ..
+                </div>
+                <div class="text-danger" *ngIf="profileForm.controls.password.errors.pattern">
+                  Enter a valid Password
+                </div>
+                <br />
+              </div>
+            </div> -->
+            <!-- <div class="form-group">
+              <h6>Profile Picture</h6>
+              <input formControlName="imagePath" placeholder="Upload Profile Picture "  type="file" 
+                 name="imagePath" />
+            </div> -->
+            <div class="form-group">
+              <h6>Current Job</h6>
+              <input formControlName="currentJob" type="text" class="form-control form-control-lg"
+                placeholder="current Job" name="currentJob" />
+              <div *ngIf="submitted && profileForm.controls.currentJob.errors" class="error">
+                <div class="text-danger" *ngIf="profileForm.controls.currentJob.errors.required">
+                  Job is required ..
+                </div>
+                <div class="text-danger" *ngIf="profileForm.controls.currentJob.errors.pattern">
+                  Enter a valid Current Job
+                </div>
+                <br />
+              </div>
+            </div>
+            <div class="form-group">
+              <h6>Current Organisation</h6>
+              <input formControlName="currentOrganisation" type="text" class="form-control form-control-lg"
+                placeholder="Current Organisation " name="currentOrganisation" />
+              <div *ngIf="submitted && profileForm.controls.currentOrganisation.errors" class="error">
+                <div class="text-danger" *ngIf="profileForm.controls.currentOrganisation.errors.required">
+                  Current Organisation is required ..
+                </div>
+                <div class="text-danger" *ngIf="profileForm.controls.currentOrganisation.errors.pattern">
+                  Enter a valid Current Organisation
+                </div>
+                <br />
+              </div>
+            </div>
+            <div class="form-group">
+              <h6>State</h6>
+              <input formControlName="state" type="text" class="form-control form-control-lg" placeholder="State "
+                name="state" />
+              <div *ngIf="submitted && profileForm.controls.state.errors" class="error">
+                <div class="text-danger" *ngIf="profileForm.controls.state.errors.required">
+                  State is required ..
+                </div>
+                <div class="text-danger" *ngIf="profileForm.controls.state.errors.pattern">
+                  Enter a valid State
+                </div>
+                <br />
+              </div>
+            </div>
+            <div class="form-group">
+              <h6>City</h6>
+              <input formControlName="city" type="text" class="form-control form-control-lg" placeholder="city "
+                name="city" />
+              <div *ngIf="submitted && profileForm.controls.city.errors" class="error">
+                <div class="text-danger" *ngIf="profileForm.controls.city.errors.required">
+                  city is required ..
+                </div>
+                <div class="text-danger" *ngIf="profileForm.controls.city.errors.pattern">
+                  Enter a valid city
+                </div>
+                <br />
+              </div>
+            </div>
+            <div class="form-group">
+              <h6>Domain</h6>
+              <select class="form-control form-control-lg"  (change)="selectChange($event)" name="status">
+                <option value="0">* Select Designation</option>
+                <option value="Developer">Developer</option>
+                <option value="Junior Developer">Junior Developer</option>
+                <option value="Senior Developer" selected>Senior Developer</option>
+                <option value="Manager">Manager</option>
+                <option value="Student or Learning">Student or Learning</option>
+                <option value="Instructor">Instructor or Teacher</option>
+                <option value="Intern">Intern</option>
+                <option value="Other">Other</option>
+              </select>
+              <small class="form-text text-muted">Give us an idea of where you are at in your career</small>
+            </div>
+
+
+            <!-- <div class="mb-3">
+              <button type="button" class="btn btn-light">Add Social Network Links</button>
+              <span class="text-muted">Optional</span>
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fab fa-twitter"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control form-control-lg" placeholder="Twitter Profile URL" name="twitter"
+                value="https://www.twitter.com/johndoe" />
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fab fa-facebook"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control form-control-lg" placeholder="Facebook Page URL" name="facebook" />
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fab fa-linkedin"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control form-control-lg" placeholder="Linkedin Profile URL"
+                name="linkedin" />
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fab fa-youtube"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control form-control-lg" placeholder="YouTube Channel URL"
+                name="youtube" />
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fab fa-instagram"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control form-control-lg" placeholder="Instagram Page URL"
+                name="instagram" />
+            </div> -->
+            <input type="submit" class="btn btn-info btn-block mt-4" />
+            <a href="dashboard" class="btn btn-primary btn-block mt-4">
+              Go Back
+            </a>
+          </form>
+        </div>
+        <!-- <div class="col-lg-3">
+          <app-footer2></app-footer2>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
